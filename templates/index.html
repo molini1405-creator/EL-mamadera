@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <img src="{{ url_for('static', filename='img/logo.png') }}"
+             class="logo"
+             alt="El Mamadera">
+
+    </div>
+
+</section>
+
+<!-- BOTÓN -->
+<div class="ver-servicios">
+
+    <a href="#servicios" class="btn-principal">
+        Ver nuestros servicios
+    </a>
+
+</div>
+
+<!-- SOBRE NOSOTROS -->
+<section class="sobre">
+
+    <div class="container">
+
+        <h2 class="titulo-neon">
+            ¿QUIÉNES SOMOS?
+        </h2>
+
+        <h3 class="frase">
+            No llevamos una barra.<br>
+            Llevamos el momento que todos van a recordar.
+        </h3>
+
+        <p>
+            En <strong>El Mamadera</strong> convertimos cada evento en una experiencia
+            única. Nuestra barra móvil combina coctelería de calidad, atención
+            profesional y una presentación pensada para sorprender desde el primer
+            brindis hasta el último trago.
+            <br><br>
+            Cada cóctel se prepara en el momento, cuidando cada detalle para que vos
+            solamente tengas que disfrutar junto a tus invitados.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios">
+
+    <div class="container">
+
+        <h2>Nuestros Servicios</h2>
+
+        <div class="row g-4">
+
+            <!-- BARRAS MÓVILES -->
+            <div class="col-md-4 col-6">
+                <div class="card-servicio">
+                    <i class="fa-solid fa-martini-glass"></i>
+                    <h4>Barras Móviles</h4>
+                </div>
+            </div>
+
+
+            <!-- CASAMIENTOS -->
+            <div class="col-md-4 col-6">
+                <a href="{{ url_for('casamientos') }}" class="servicio-link">
+                    <div class="card-servicio">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                        <h4>Casamientos</h4>
+                    </div>
+                </a>
+            </div>
+
+
+            <!-- CUMPLEAÑOS -->
+            <div class="col-md-4 col-6">
+                <a href="{{ url_for('cumpleanos') }}" class="servicio-link">
+                    <div class="card-servicio">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <h4>Cumpleaños</h4>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CARTA -->
+<!-- =====================================================
+     NUESTRA CARTA
+     ===================================================== -->
+
+<section class="tragos" id="carta">
+
+    <div class="container">
+
+        <h2 class="titulo-neon">
+            NUESTRA CARTA
+        </h2>
+
+        <p class="carta-frase">
+            El sabor empieza acá.
+        </p>
+
+        <p class="carta-intro">
+            Una selección de tragos preparados al momento,
+            pensados para sorprender desde el primer sorbo.
+        </p>
+
+
+        <div class="row g-4 mt-5">
+
+
+            <!-- TRAGO 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="trago-card">
+
+                    <div class="trago-imagen">
+
+                        <img
+                            src="{{ url_for('static', filename='img/tragos/mojito.jpg') }}"
+                            alt="Mojito"
+                        >
+
+                    </div>
+
+                    <div class="trago-info">
+
+                        <h3>MOJITO</h3>
+
+                        <p>
+                            Fresco, equilibrado y con el toque justo de
+                            menta para empezar la noche.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRAGO 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="trago-card">
+
+                    <div class="trago-imagen">
+
+                        <img
+                            src="{{ url_for('static', filename='img/tragos/gin-tonic.jpg') }}"
+                            alt="Gin Tonic"
+                        >
+
+                    </div>
+
+                    <div class="trago-info">
+
+                        <h3>GIN TONIC</h3>
+
+                        <p>
+                            Elegante, refrescante y preparado para
+                            disfrutar cada detalle.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRAGO 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="trago-card">
+
+                    <div class="trago-imagen">
+
+                        <img
+                            src="{{ url_for('static', filename='img/tragos/fernet.jpg') }}"
+                            alt="Fernet"
+                        >
+
+                    </div>
+
+                    <div class="trago-info">
+
+                        <h3>FERNET</h3>
+
+                        <p>
+                            Un clásico que nunca falla y que siempre
+                            encuentra su lugar en la fiesta.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<!-- CONTACTO -->
+<section class="contacto">
+
+    <div class="container">
+
+        <h2>¿Organizamos tu próximo evento?</h2>
+
+        <a href="#" class="btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            Consultanos
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO CUMPLEAÑOS -->
+<section class="evento-hero">
+
+    <div class="container">
+
+        <h1 class="titulo-neon">
+            CUMPLEAÑOS
+        </h1>
+
+        <p class="evento-frase">
+            Una celebración especial merece momentos para recordar.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INFORMACIÓN -->
+<section class="evento-info">
+
+    <div class="container">
+
+        <h2 class="titulo-neon">
+            NUESTRA BARRA EN TU CUMPLEAÑOS
+        </h2>
+
+        <p>
+            Acá vamos a colocar la información sobre el servicio
+            de barra para cumpleaños.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCIAS -->
+<section class="experiencias">
+
+    <div class="container">
+
+        <h2 class="titulo-neon">
+            EXPERIENCIAS
+        </h2>
+
+        <p class="experiencias-intro">
+            Mirá las experiencias de quienes celebraron
+            su cumpleaños junto a El Mamadera.
+        </p>
+
+
+        <!-- FUTURAS PUBLICACIONES -->
+
+        <div class="experiencias-vacias">
+
+            <i class="fa-solid fa-camera"></i>
+
+            <h3>
+                Próximamente
+            </h3>
+
+            <p>
+                Acá aparecerán las fotos y experiencias
+                de nuestros clientes.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VOLVER -->
+<section class="volver">
+
+    <div class="container">
+
+        <a href="{{ url_for('inicio') }}" class="btn-principal">
+            Volver al inicio
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

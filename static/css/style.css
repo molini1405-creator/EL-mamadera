@@ -1,0 +1,1040 @@
+/* =====================================================
+   EL MAMADERA
+   Identidad visual
+   ===================================================== */
+
+:root {
+    --negro: #080808;
+    --negro-suave: #111111;
+    --dorado: #d4af37;
+    --dorado-claro: #f1d77a;
+    --bordo: #651b2b;
+    --blanco: #ffffff;
+    --gris: #c8c8c8;
+}
+
+
+/* =====================================================
+   GENERAL
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.82),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("../img/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Luz dorada muy sutil */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(212, 175, 55, 0.08);
+
+    filter: blur(100px);
+
+    border-radius: 50%;
+}
+
+
+/* Contenido */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =====================================================
+   LOGO
+   ===================================================== */
+
+.logo {
+    width: 500px;
+
+    max-width: 85%;
+
+    filter:
+        drop-shadow(0 0 15px rgba(212, 175, 55, 0.25))
+        drop-shadow(0 0 35px rgba(212, 175, 55, 0.15));
+
+    animation: aparecerLogo 1.5s ease forwards;
+}
+
+
+/* Animación */
+
+@keyframes aparecerLogo {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   BOTÓN
+   ===================================================== */
+
+.ver-servicios {
+    background: var(--negro);
+
+    text-align: center;
+
+    padding: 45px 20px 75px;
+}
+
+
+.btn-principal {
+
+    display: inline-block;
+
+    padding: 16px 42px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        var(--dorado-claro),
+        var(--dorado)
+    );
+
+    color: #111;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+
+.btn-principal:hover {
+
+    color: #111;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 30px rgba(212, 175, 55, 0.35);
+}
+
+
+/* =====================================================
+   SECCIONES
+   ===================================================== */
+
+section {
+    padding: 100px 0;
+}
+
+
+/* =====================================================
+   TÍTULOS PRINCIPALES
+   ===================================================== */
+
+h2 {
+
+    font-family: "Cinzel", serif;
+
+    color: var(--dorado);
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+
+/* =====================================================
+   TÍTULO NEÓN / DORADO
+   ===================================================== */
+
+.titulo-neon {
+
+    font-family: "Cinzel", serif;
+
+    color: var(--dorado-claro);
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 0 5px rgba(212, 175, 55, 0.8),
+        0 0 12px rgba(212, 175, 55, 0.7),
+        0 0 25px rgba(212, 175, 55, 0.5),
+        0 0 45px rgba(212, 175, 55, 0.25);
+}
+
+
+/* =====================================================
+   SOBRE NOSOTROS
+   ===================================================== */
+
+.sobre {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(101, 27, 43, 0.12),
+            transparent 60%
+        );
+
+    text-align: center;
+}
+
+
+.sobre .frase {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 38px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    line-height: 1.3;
+
+    max-width: 900px;
+
+    margin: 0 auto 40px;
+
+    color: var(--blanco);
+}
+
+
+.sobre p {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    color: var(--gris);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 300;
+
+    line-height: 2;
+
+}
+
+
+/* Palabras importantes */
+
+.sobre strong {
+
+    color: var(--dorado-claro);
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   SERVICIOS
+   ===================================================== */
+
+.servicios {
+
+    background: var(--negro-suave);
+
+    text-align: center;
+}
+
+
+.servicios > .container > p {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-style: italic;
+
+    color: #dddddd;
+
+    max-width: 800px;
+
+    margin: -15px auto 50px;
+}
+
+
+/* =====================================================
+   TARJETAS DE SERVICIOS
+   ===================================================== */
+
+.card-servicio {
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0e0e0e
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+
+    border-radius: 18px;
+
+    padding: 45px 20px;
+
+    height: 100%;
+
+    transition: all 0.35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Línea dorada */
+
+.card-servicio::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--dorado),
+        transparent
+    );
+
+    opacity: 0;
+
+    transition: 0.3s;
+}
+
+
+.card-servicio:hover {
+
+    transform: translateY(-10px);
+
+    border-color: rgba(212, 175, 55, 0.45);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+.card-servicio:hover::before {
+
+    opacity: 1;
+}
+
+
+/* Íconos */
+
+.card-servicio i {
+
+    color: var(--dorado);
+
+    font-size: 42px;
+
+    margin-bottom: 25px;
+
+    transition: 0.3s;
+}
+
+
+.card-servicio:hover i {
+
+    transform: scale(1.1);
+
+    text-shadow:
+        0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+
+/* Títulos de tarjetas */
+
+.card-servicio h4 {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: white;
+}
+
+
+/* =====================================================
+   CARTA
+   ===================================================== */
+
+.tragos {
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212, 175, 55, 0.05),
+            transparent 60%
+        );
+}
+
+
+.tragos p {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    color: var(--gris);
+}
+
+
+/* =====================================================
+   CONTACTO
+   ===================================================== */
+
+.contacto {
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(101, 27, 43, 0.15),
+            rgba(0, 0, 0, 0.3)
+        );
+}
+
+
+.contacto h2 {
+
+    max-width: 900px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =====================================================
+   WHATSAPP
+   ===================================================== */
+
+.btn-whatsapp {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px 35px;
+
+    border-radius: 50px;
+
+    background: #25d366;
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.btn-whatsapp:hover {
+
+    color: white;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px rgba(37, 211, 102, 0.25);
+}
+
+
+/* =====================================================
+   RESPONSIVE - CELULAR
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .logo {
+        width: 420px;
+        max-width: 90%;
+    }
+
+    section {
+        padding: 75px 20px;
+    }
+
+    h2 {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+    .titulo-neon {
+        font-size: 34px;
+        letter-spacing: 3px;
+    }
+
+    .sobre .frase {
+        font-size: 30px;
+    }
+
+    .sobre p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .servicios > .container > p {
+        font-size: 24px;
+    }
+
+    .tragos p {
+        font-size: 25px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .logo {
+        width: 360px;
+        max-width: 92%;
+    }
+
+    .titulo-neon {
+        font-size: 28px;
+    }
+
+    .sobre .frase {
+        font-size: 27px;
+    }
+
+    .btn-principal {
+        padding: 14px 30px;
+        font-size: 12px;
+    }
+
+}
+
+/* =====================================================
+   NUESTRA CARTA
+   ===================================================== */
+
+.tragos {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212, 175, 55, 0.06),
+            transparent 60%
+        );
+
+    text-align: center;
+}
+
+
+.carta-frase {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 42px;
+
+    font-style: italic;
+
+    font-weight: 600;
+
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+
+.carta-intro {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #bdbdbd;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 300;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   TARJETA DEL TRAGO
+   ===================================================== */
+
+.trago-card {
+
+    background: #111;
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    height: 100%;
+
+    transition: all 0.4s ease;
+
+    text-align: left;
+}
+
+
+.trago-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(212, 175, 55, 0.5);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =====================================================
+   IMAGEN
+   ===================================================== */
+
+.trago-imagen {
+
+    width: 100%;
+
+    height: 320px;
+
+    overflow: hidden;
+
+    background: #080808;
+}
+
+
+.trago-imagen img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+
+.trago-card:hover .trago-imagen img {
+
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   INFORMACIÓN
+   ===================================================== */
+
+.trago-info {
+
+    padding: 25px;
+}
+
+
+.trago-info h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    color: var(--dorado-claro);
+
+    margin-bottom: 12px;
+}
+
+
+.trago-info p {
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #bdbdbd;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   CARTA - CELULAR
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .carta-frase {
+        font-size: 34px;
+    }
+
+    .trago-imagen {
+        height: 280px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .carta-frase {
+        font-size: 30px;
+    }
+
+    .trago-imagen {
+        height: 260px;
+    }
+
+}
+/* =====================================================
+   ENLACES DE SERVICIOS
+   ===================================================== */
+
+.servicio-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.servicio-link:hover {
+    color: inherit;
+}
+
+/* =====================================================
+   PÁGINAS DE EVENTOS
+   ===================================================== */
+
+.evento-hero {
+    min-height: 55vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.78),
+            rgba(0, 0, 0, 0.92)
+        ),
+        url("../img/eventos.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+
+.evento-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    background: rgba(212, 175, 55, 0.08);
+
+    filter: blur(100px);
+
+    border-radius: 50%;
+}
+
+
+.evento-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.evento-frase {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 32px;
+
+    font-style: italic;
+
+    color: var(--blanco);
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   INFORMACIÓN DEL EVENTO
+   ===================================================== */
+
+.evento-info {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(101, 27, 43, 0.12),
+            transparent 65%
+        );
+}
+
+
+.evento-info p {
+    max-width: 850px;
+
+    margin: auto;
+
+    color: var(--gris);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+/* =====================================================
+   EXPERIENCIAS
+   ===================================================== */
+
+.experiencias {
+    background: var(--negro-suave);
+
+    text-align: center;
+}
+
+
+.experiencias-intro {
+    max-width: 700px;
+
+    margin: -15px auto 50px;
+
+    color: var(--gris);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-style: italic;
+}
+
+
+.experiencias-vacias {
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 60px 30px;
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0e0e0e
+        );
+}
+
+
+.experiencias-vacias i {
+    color: var(--dorado);
+
+    font-size: 50px;
+
+    margin-bottom: 25px;
+}
+
+
+.experiencias-vacias h3 {
+    font-family: "Cinzel", serif;
+
+    color: var(--dorado-claro);
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+
+.experiencias-vacias p {
+    color: var(--gris);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   VOLVER
+   ===================================================== */
+
+.volver {
+    text-align: center;
+
+    background: var(--negro);
+
+    padding-top: 60px;
+}
+
+
+/* =====================================================
+   EVENTOS - CELULAR
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .evento-hero {
+        min-height: 50vh;
+    }
+
+    .evento-frase {
+        font-size: 27px;
+    }
+
+    .evento-info p {
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+    .experiencias-intro {
+        font-size: 24px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .evento-hero {
+        min-height: 45vh;
+    }
+
+    .evento-frase {
+        font-size: 24px;
+    }
+
+    .experiencias-vacias {
+        padding: 45px 20px;
+    }
+
+}
