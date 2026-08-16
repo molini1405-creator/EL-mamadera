@@ -8,14 +8,12 @@ app = Flask(__name__)
 
 
 # =====================================================
-# CONFIGURACIÓN DE BASE DE DATOS
+# BASE DE DATOS
 # =====================================================
 
 database_url = os.environ.get("DATABASE_URL")
 
 if database_url:
-    # Render puede entregar DATABASE_URL con postgres://
-    # SQLAlchemy utiliza postgresql://
     if database_url.startswith("postgres://"):
         database_url = database_url.replace(
             "postgres://",
@@ -26,9 +24,8 @@ if database_url:
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
 else:
-    # Mientras desarrollamos localmente
-    app.config["SQLALCHEMY_DATABASE_URI"] = (
-        "postgresql://porti:porti123@localhost:5433/porti_db"
+    raise RuntimeError(
+        "No se encontró la variable DATABASE_URL"
     )
 
 
