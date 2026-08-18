@@ -188,35 +188,49 @@
 
         <div class="categorias-tragos">
 
-            <button
-                class="categoria-btn activo"
-                data-categoria="todos"
-            >
-                Todos
-            </button>
+    <button
+        class="categoria-btn activo"
+        data-categoria="todos"
+    >
+        Todos
+    </button>
 
-            <button
-                class="categoria-btn"
-                data-categoria="cocteles"
-            >
-                Cócteles
-            </button>
+    <button
+        class="categoria-btn"
+        data-categoria="cocteles"
+    >
+        Cócteles
+    </button>
 
-            <button
-                class="categoria-btn"
-                data-categoria="aperitivos"
-            >
-                Aperitivos
-            </button>
+    <button
+        class="categoria-btn"
+        data-categoria="aperitivos"
+    >
+        Aperitivos
+    </button>
 
-            <button
-                class="categoria-btn"
-                data-categoria="sin-alcohol"
-            >
-                Sin alcohol
-            </button>
+    <button
+        class="categoria-btn"
+        data-categoria="cervezas"
+    >
+        Cervezas
+    </button>
 
-        </div>
+    <button
+        class="categoria-btn"
+        data-categoria="gaseosas"
+    >
+        Gaseosas
+    </button>
+
+    <button
+        class="categoria-btn"
+        data-categoria="sin-alcohol"
+    >
+        Sin alcohol
+    </button>
+
+</div>
 
 
         <!-- =================================================
@@ -368,6 +382,172 @@
                 </div>
 
             </div>
+
+            <div
+    class="col-md-6 col-lg-4 trago-item"
+    data-categorias="cocteles"
+>
+
+    <div class="trago-card">
+
+        <div class="trago-imagen">
+
+            <img
+                src="{{ url_for('static', filename='img/tragos/fernet.jpg') }}"
+                alt="Fernet"
+            >
+
+        </div>
+
+        <div class="trago-info">
+
+            <h3>
+                Fernet
+            </h3>
+
+            <p>
+                Intenso y refrescante, con el característico
+                sabor amargo del fernet combinado con una
+                bebida cola.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="col-md-6 col-lg-4 trago-item"
+    data-categorias="cocteles"
+>
+
+    <div class="trago-card">
+
+        <div class="trago-imagen">
+
+            <img
+                src="{{ url_for('static', filename='img/tragos/mojito.jpg') }}"
+                alt="Mojito"
+            >
+
+        </div>
+
+        <div class="trago-info">
+
+            <h3>
+                Mojito
+            </h3>
+
+            <p>
+                Fresco y refrescante, con menta, lima y un
+                toque de dulzor.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="col-md-6 col-lg-4 trago-item"
+    data-categorias="cocteles"
+>
+
+    <div class="trago-card">
+
+        <div class="trago-imagen">
+
+            <img
+                src="{{ url_for('static', filename='img/tragos/gin-tonic.jpg') }}"
+                alt="Gin Tonic"
+            >
+
+        </div>
+
+        <div class="trago-info">
+
+            <h3>
+                Gin Tonic
+            </h3>
+
+            <p>
+                Elegante, fresco y aromático, con el equilibrio
+                perfecto entre gin y agua tónica.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="col-md-6 col-lg-4 trago-item"
+    data-categorias="cervezas"
+>
+
+    <div class="trago-card">
+
+        <div class="trago-imagen">
+
+            <img
+                src="{{ url_for('static', filename='img/tragos/cervezas.jpg') }}"
+                alt="Cervezas"
+            >
+
+        </div>
+
+        <div class="trago-info">
+
+            <h3>
+                Cervezas
+            </h3>
+
+            <p>
+                Una opción clásica y refrescante para disfrutar
+                durante cualquier celebración.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    class="col-md-6 col-lg-4 trago-item"
+    data-categorias="gaseosas sin-alcohol"
+>
+
+    <div class="trago-card">
+
+        <div class="trago-imagen">
+
+            <img
+                src="{{ url_for('static', filename='img/tragos/gaseosas.jpg') }}"
+                alt="Gaseosas"
+            >
+
+        </div>
+
+        <div class="trago-info">
+
+            <h3>
+                Gaseosas
+            </h3>
+
+            <p>
+                Coca-Cola, Sprite, gaseosa de naranja,
+                gaseosa de pomelo y otras opciones.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 
             <!-- GANCIA -->
