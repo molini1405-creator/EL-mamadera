@@ -4,168 +4,146 @@
 
 <section class="compartir-experiencia">
 
-    <div class="container">
+```
+<div class="container">
 
-        <h2 class="titulo-neon">
-            COMPARTÍ TU EXPERIENCIA
-        </h2>
+    <h2 class="titulo-neon">
+        COMPARTÍ TU EXPERIENCIA
+    </h2>
 
-        <p class="compartir-intro">
-            Queremos conocer cómo viviste tu noche con
-            <strong>El Mamadera</strong>.
-        </p>
+    <p class="compartir-intro">
+        Queremos conocer cómo viviste tu noche con
+        <strong>El Mamadera</strong>.
+    </p>
 
+    <div class="formulario-experiencia">
 
-        <div class="formulario-experiencia">
+        <form
+            action="{{ url_for('compartir_experiencia', tipo_evento=tipo_evento) }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
 
-            <form
-                action="{{ url_for('compartir_experiencia', tipo_evento=tipo_evento) }}"
-                method="POST"
-                enctype="multipart/form-data"
-            >
+            <!-- NOMBRE -->
 
-                <!-- NOMBRE -->
+            <div class="campo">
 
-                <div class="campo">
+                <label for="nombre">
+                    Tu nombre
+                </label>
 
-                    <label for="nombre">
-                        Tu nombre
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Ej: Juan"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- COMENTARIO -->
-
-                <div class="campo">
-
-                    <label for="comentario">
-                        Contanos tu experiencia
-                    </label>
-
-                    <textarea
-                        id="comentario"
-                        name="comentario"
-                        rows="5"
-                        placeholder="¿Cómo fue tu experiencia con El Mamadera?"
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <!-- FOTO -->
-
-                <div class="campo">
-
-                    <label>
-                        Compartí una foto de la noche
-                    </label>
-
-                    <!-- INPUT REAL -->
-
-                    <input
-                        type="file"
-                        id="foto"
-                        name="foto"
-                        accept="image/jpeg,image/png,image/webp,image/jpg"
-                        required
-                        style="display: none;"
-                    >
-
-                    <!-- BOTÓN PARA SELECCIONAR -->
-
-                    <label
-                        for="foto"
-                        class="selector-foto"
-                    >
-
-                        <i class="fa-solid fa-camera"></i>
-
-                        <span>
-                            Seleccionar foto
-                        </span>
-
-                    </label>
-
-                    <!-- NOMBRE DEL ARCHIVO -->
-
-                    <div
-                        id="nombre-archivo"
-                        class="nombre-archivo"
-                    >
-                        No seleccionaste ninguna foto
-                    </div>
-
-                    <small>
-                        Podés subir una foto de tu evento.
-                    </small>
-
-                </div>
-
-
-                <!-- AVISO -->
-
-                <div class="aviso-experiencia">
-
-                    <i class="fa-solid fa-circle-info"></i>
-
-                    <p>
-                        Tu experiencia será revisada antes de aparecer
-                        públicamente en nuestra página.
-                    </p>
-
-                </div>
-
-
-                <!-- BOTÓN -->
-
-                <button
-                    type="submit"
-                    class="btn-principal btn-enviar"
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ej: Juan"
+                    required
                 >
-                    📸 Publicar experiencia
-                </button>
 
-            </form>
+            </div>
 
-        </div>
+
+            <!-- COMENTARIO -->
+
+            <div class="campo">
+
+                <label for="comentario">
+                    Contanos tu experiencia
+                </label>
+
+                <textarea
+                    id="comentario"
+                    name="comentario"
+                    rows="5"
+                    placeholder="¿Cómo fue tu experiencia con El Mamadera?"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- FOTO -->
+
+            <div class="campo">
+
+                <label>
+                    Compartí una foto de la noche
+                </label>
+
+                <input
+                    type="file"
+                    id="foto"
+                    name="foto"
+                    accept="image/jpeg,image/png,image/webp,image/jpg"
+                    required
+                    class="input-foto"
+                >
+
+                <label for="foto" class="selector-foto">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>Seleccionar foto</span>
+                </label>
+
+                <p id="nombre-foto" class="nombre-foto">
+                    No seleccionaste ninguna foto
+                </p>
+
+                <small>
+                    Podés subir una foto de tu evento.
+                </small>
+
+            </div>
+
+
+            <!-- AVISO -->
+
+            <div class="aviso-experiencia">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    Tu experiencia será revisada antes de aparecer
+                    públicamente en nuestra página.
+                </p>
+
+            </div>
+
+
+            <!-- BOTÓN -->
+
+            <button
+                type="submit"
+                class="btn-principal btn-enviar"
+            >
+                📸 Publicar experiencia
+            </button>
+
+        </form>
 
     </div>
 
+</div>
+```
+
 </section>
-
-
-<!-- =====================================================
-     JAVASCRIPT FOTO
-     ===================================================== -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
     const inputFoto = document.getElementById("foto");
-    const nombreArchivo = document.getElementById("nombre-archivo");
-
+    const nombreFoto = document.getElementById("nombre-foto");
 
     inputFoto.addEventListener("change", function () {
 
-        if (this.files && this.files.length > 0) {
+        if (this.files.length > 0) {
 
-            nombreArchivo.textContent =
-                "📷 " + this.files[0].name;
+            nombreFoto.textContent =
+                "Foto seleccionada: " + this.files[0].name;
 
         } else {
 
-            nombreArchivo.textContent =
+            nombreFoto.textContent =
                 "No seleccionaste ninguna foto";
 
         }

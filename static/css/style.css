@@ -1808,3 +1808,75 @@ h2 {
     word-break: break-word;
 
 }
+
+/* =====================================================
+SELECTOR DE FOTO - COMPARTIR EXPERIENCIA
+===================================================== */
+
+.input-foto {
+position: absolute !important;
+width: 1px !important;
+height: 1px !important;
+padding: 0 !important;
+margin: -1px !important;
+overflow: hidden !important;
+clip: rect(0, 0, 0, 0) !important;
+white-space: nowrap !important;
+border: 0 !important;
+}
+
+.selector-foto {
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 12px !important;
+
+```
+width: 100% !important;
+
+padding: 18px !important;
+
+margin-top: 10px !important;
+
+border: 1px dashed rgba(212, 175, 55, 0.6) !important;
+border-radius: 12px !important;
+
+background: rgba(212, 175, 55, 0.05) !important;
+
+color: var(--dorado-claro) !important;
+
+font-family: "Montserrat", sans-serif !important;
+font-size: 14px !important;
+font-weight: 600 !important;
+
+cursor: pointer !important;
+
+transition: all 0.3s ease !important;
+```
+
+}
+
+.selector-foto:hover {
+background: rgba(212, 175, 55, 0.12) !important;
+border-color: var(--dorado) !important;
+transform: translateY(-2px);
+}
+
+.selector-foto i {
+color: var(--dorado) !important;
+font-size: 22px !important;
+}
+
+.nombre-foto {
+margin: 10px 0 0 !important;
+
+```
+color: #bdbdbd !important;
+
+font-family: "Poppins", sans-serif !important;
+font-size: 12px !important;
+
+text-align: center !important;
+```
+
+}
