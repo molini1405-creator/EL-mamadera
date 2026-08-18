@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
+from extensions import db
 
 import cloudinary
 import cloudinary.uploader
@@ -43,8 +43,11 @@ else:
 
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
+db.init_app(app)
+
+
 from models.experiencia import Experiencia
 
 
