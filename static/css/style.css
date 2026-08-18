@@ -1643,3 +1643,92 @@ h2 {
     }
 
 }
+
+/* =====================================================
+   CATEGORÍAS DE LA CARTA
+   ===================================================== */
+
+.categorias-tragos {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 35px auto 50px;
+
+}
+
+
+.categoria-btn {
+
+    padding: 11px 24px;
+
+    background: transparent;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    border-radius: 30px;
+
+    color: #bdbdbd;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.categoria-btn:hover {
+
+    border-color: var(--dorado);
+
+    color: var(--dorado-claro);
+
+}
+
+
+.categoria-btn.activo {
+
+    background: var(--dorado);
+
+    border-color: var(--dorado);
+
+    color: #111;
+
+}
+
+
+/* =====================================================
+   FILTRO DE TRAGOS
+   ===================================================== */
+
+.trago-item {
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.trago-item.oculto {
+
+    display: none;
+
+}

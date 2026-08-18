@@ -173,40 +173,86 @@
         </h2>
 
         <p class="carta-frase">
-            El sabor empieza acá.
+            Una selección pensada para cada momento.
         </p>
 
         <p class="carta-intro">
-            Una selección de tragos preparados al momento,
-            pensados para sorprender desde el primer sorbo.
+            Descubrí nuestras opciones y elegí el trago
+            perfecto para acompañar tu celebración.
         </p>
 
 
-        <div class="row g-4 mt-5">
+        <!-- =================================================
+             CATEGORÍAS
+             ================================================= -->
+
+        <div class="categorias-tragos">
+
+            <button
+                class="categoria-btn activo"
+                data-categoria="todos"
+            >
+                Todos
+            </button>
+
+            <button
+                class="categoria-btn"
+                data-categoria="cocteles"
+            >
+                Cócteles
+            </button>
+
+            <button
+                class="categoria-btn"
+                data-categoria="aperitivos"
+            >
+                Aperitivos
+            </button>
+
+            <button
+                class="categoria-btn"
+                data-categoria="sin-alcohol"
+            >
+                Sin alcohol
+            </button>
+
+        </div>
 
 
-            <!-- TRAGO 1 -->
+        <!-- =================================================
+             TRAGOS
+             ================================================= -->
 
-            <div class="col-lg-4 col-md-6">
+        <div class="row g-4">
+
+
+            <!-- NEGRONI -->
+
+            <div
+                class="col-md-6 col-lg-4 trago-item"
+                data-categorias="cocteles"
+            >
 
                 <div class="trago-card">
 
                     <div class="trago-imagen">
 
                         <img
-                            src="{{ url_for('static', filename='img/tragos/mojito.jpg') }}"
-                            alt="Mojito"
+                            src="{{ url_for('static', filename='img/tragos/negroni.jpg') }}"
+                            alt="Negroni"
                         >
 
                     </div>
 
                     <div class="trago-info">
 
-                        <h3>MOJITO</h3>
+                        <h3>
+                            Negroni
+                        </h3>
 
                         <p>
-                            Fresco, equilibrado y con el toque justo de
-                            menta para empezar la noche.
+                            Intenso y seco, con un equilibrio perfecto
+                            entre notas amargas y dulces.
                         </p>
 
                     </div>
@@ -216,28 +262,33 @@
             </div>
 
 
-            <!-- TRAGO 2 -->
+            <!-- APEROL SPRITZ -->
 
-            <div class="col-lg-4 col-md-6">
+            <div
+                class="col-md-6 col-lg-4 trago-item"
+                data-categorias="cocteles aperitivos"
+            >
 
                 <div class="trago-card">
 
                     <div class="trago-imagen">
 
                         <img
-                            src="{{ url_for('static', filename='img/tragos/gin-tonic.jpg') }}"
-                            alt="Gin Tonic"
+                            src="{{ url_for('static', filename='img/tragos/aperol-spritz.jpg') }}"
+                            alt="Aperol Spritz"
                         >
 
                     </div>
 
                     <div class="trago-info">
 
-                        <h3>GIN TONIC</h3>
+                        <h3>
+                            Aperol Spritz
+                        </h3>
 
                         <p>
-                            Elegante, refrescante y preparado para
-                            disfrutar cada detalle.
+                            Ligero, refrescante y equilibrado entre lo
+                            dulce y lo amargo. Ideal como aperitivo.
                         </p>
 
                     </div>
@@ -247,28 +298,141 @@
             </div>
 
 
-            <!-- TRAGO 3 -->
+            <!-- CUBA LIBRE -->
 
-            <div class="col-lg-4 col-md-6">
+            <div
+                class="col-md-6 col-lg-4 trago-item"
+                data-categorias="cocteles"
+            >
 
                 <div class="trago-card">
 
                     <div class="trago-imagen">
 
                         <img
-                            src="{{ url_for('static', filename='img/tragos/fernet.jpg') }}"
-                            alt="Fernet"
+                            src="{{ url_for('static', filename='img/tragos/cuba-libre.jpg') }}"
+                            alt="Cuba Libre"
                         >
 
                     </div>
 
                     <div class="trago-info">
 
-                        <h3>FERNET</h3>
+                        <h3>
+                            Cuba Libre
+                        </h3>
 
                         <p>
-                            Un clásico que nunca falla y que siempre
-                            encuentra su lugar en la fiesta.
+                            Intenso y cítrico, con un toque burbujeante.
+                            Ideal para comenzar la noche.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESPRESSO MARTINI -->
+
+            <div
+                class="col-md-6 col-lg-4 trago-item"
+                data-categorias="cocteles"
+            >
+
+                <div class="trago-card">
+
+                    <div class="trago-imagen">
+
+                        <img
+                            src="{{ url_for('static', filename='img/tragos/espresso-martini.jpg') }}"
+                            alt="Espresso Martini"
+                        >
+
+                    </div>
+
+                    <div class="trago-info">
+
+                        <h3>
+                            Espresso Martini
+                        </h3>
+
+                        <p>
+                            Frío, cremoso y elegante, con el carácter
+                            intenso del café.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GANCIA -->
+
+            <div
+                class="col-md-6 col-lg-4 trago-item"
+                data-categorias="aperitivos"
+            >
+
+                <div class="trago-card">
+
+                    <div class="trago-imagen">
+
+                        <img
+                            src="{{ url_for('static', filename='img/tragos/gancia.jpg') }}"
+                            alt="Gancia"
+                        >
+
+                    </div>
+
+                    <div class="trago-info">
+
+                        <h3>
+                            Gancia
+                        </h3>
+
+                        <p>
+                            Aperitivo ligero, fresco y cítrico.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CYNAR JULEP -->
+
+            <div
+                class="col-md-6 col-lg-4 trago-item"
+                data-categorias="cocteles aperitivos"
+            >
+
+                <div class="trago-card">
+
+                    <div class="trago-imagen">
+
+                        <img
+                            src="{{ url_for('static', filename='img/tragos/cynar-julep.jpg') }}"
+                            alt="Cynar Julep"
+                        >
+
+                    </div>
+
+                    <div class="trago-info">
+
+                        <h3>
+                            Cynar Julep
+                        </h3>
+
+                        <p>
+                            Refrescante y herbáceo, combina el carácter
+                            amargo del Cynar con la frescura de la menta
+                            y el pomelo.
                         </p>
 
                     </div>
@@ -282,6 +446,7 @@
 
     </div>
 
+</section>
 </section>
 <!-- =====================================================
      CONTACTO

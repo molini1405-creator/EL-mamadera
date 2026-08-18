@@ -31,6 +31,63 @@
     >
 </head>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botones = document.querySelectorAll(".categoria-btn");
+    const tragos = document.querySelectorAll(".trago-item");
+
+
+    botones.forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            const categoria = this.dataset.categoria;
+
+
+            /* BOTÓN ACTIVO */
+
+            botones.forEach(function (btn) {
+
+                btn.classList.remove("activo");
+
+            });
+
+            this.classList.add("activo");
+
+
+            /* FILTRAR */
+
+            tragos.forEach(function (trago) {
+
+                const categorias =
+                    trago.dataset.categorias.split(" ");
+
+
+                if (
+                    categoria === "todos" ||
+                    categorias.includes(categoria)
+                ) {
+
+                    trago.classList.remove("oculto");
+
+                } else {
+
+                    trago.classList.add("oculto");
+
+                }
+
+            });
+
+        });
+
+    });
+
+});
+
+</script>
+
 <body>
 
     {% block content %}{% endblock %}
