@@ -44,9 +44,6 @@ else:
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
 
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-
 db = SQLAlchemy(app)
 from models.experiencia import Experiencia
 
