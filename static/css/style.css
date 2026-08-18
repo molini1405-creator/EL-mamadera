@@ -1314,3 +1314,316 @@ h2 {
     }
 
 }
+/* =====================================================
+   CONTACTO - REDES
+   ===================================================== */
+
+.contacto-texto {
+
+    max-width: 700px;
+
+    margin: -20px auto 35px;
+
+    color: var(--gris);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+.contacto-botones {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.btn-instagram {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 16px 35px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-instagram:hover {
+
+    color: white;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px rgba(225, 48, 108, 0.25);
+
+}
+
+
+/* =====================================================
+   FOOTER DEL CREADOR
+   ===================================================== */
+
+.footer-creador {
+
+    background: white;
+
+    color: #111;
+
+    text-align: center;
+
+    padding: 28px 20px 0;
+
+}
+
+
+.footer-contenido {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.footer-contenido p {
+
+    margin: 0;
+
+    color: #555;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+.btn-datos-creador {
+
+    background: transparent;
+
+    border: 1px solid #222;
+
+    border-radius: 30px;
+
+    padding: 9px 20px;
+
+    color: #111;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-datos-creador:hover {
+
+    background: #111;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   DATOS DEL CREADOR
+   ===================================================== */
+
+.datos-creador {
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 0.5s ease,
+        opacity 0.4s ease,
+        padding 0.4s ease;
+
+}
+
+
+.datos-creador.mostrar {
+
+    max-height: 300px;
+
+    padding: 30px 20px;
+
+    opacity: 1;
+
+}
+
+
+.datos-creador h3 {
+
+    font-family: "Cinzel", serif;
+
+    color: #111;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.datos-creador p {
+
+    margin: 5px 0;
+
+    color: #555;
+
+    font-size: 14px;
+
+}
+
+
+.datos-creador .nombre-creador {
+
+    color: #111;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+}
+
+
+.contacto-creador {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+
+}
+
+
+.contacto-creador a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.contacto-creador a:hover {
+
+    color: #8b6f18;
+
+}
+
+
+.contacto-creador i {
+
+    font-size: 18px;
+
+}
+
+
+/* =====================================================
+   CREADOR - CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .footer-contenido {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .contacto-botones {
+
+        flex-direction: column;
+
+    }
+
+
+    .btn-whatsapp,
+    .btn-instagram {
+
+        width: 220px;
+
+    }
+
+}
