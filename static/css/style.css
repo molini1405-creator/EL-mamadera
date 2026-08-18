@@ -1430,7 +1430,7 @@ h2 {
 
     margin: 0;
 
-    color: #242424;
+    color: #292929;
 
     font-family: "Poppins", sans-serif;
 
@@ -1439,15 +1439,19 @@ h2 {
 }
 
 
+/* =====================================================
+   BOTÓN DATOS DEL CREADOR
+   ===================================================== */
+
 .btn-datos-creador {
+
+    padding: 10px 22px;
 
     background: rgba(0, 0, 0, 0.08);
 
     border: 1px solid rgba(0, 0, 0, 0.35);
 
     border-radius: 30px;
-
-    padding: 9px 20px;
 
     color: #111;
 
@@ -1457,9 +1461,11 @@ h2 {
 
     font-weight: 600;
 
+    letter-spacing: 0.5px;
+
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: all 0.3s ease;
 
 }
 
@@ -1474,28 +1480,106 @@ h2 {
 
 }
 
+
+/* =====================================================
+   DATOS DEL CREADOR
+   ===================================================== */
+
+.datos-creador {
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    padding: 0;
+
+    transition:
+        max-height 0.5s ease,
+        opacity 0.4s ease,
+        padding 0.4s ease;
+
+}
+
+
+.datos-creador.mostrar {
+
+    max-height: 350px;
+
+    opacity: 1;
+
+    padding: 30px 20px 35px;
+
+}
+
+
 .datos-creador h3 {
 
-    font-family: "Cinzel", serif;
+    margin: 0 0 12px;
 
-    color: #111;
+    font-family: "Cinzel", serif;
 
     font-size: 22px;
 
     letter-spacing: 2px;
 
-    margin-bottom: 15px;
+    color: #111;
 
 }
 
 
-.datos-creador .nombre-creador {
+.nombre-creador {
 
-    color: #111;
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
 
     font-size: 18px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    color: #111;
+
+}
+
+
+.profesion-creador {
+
+    margin: 6px 0 20px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: #4a4325;
+
+}
+
+
+/* =====================================================
+   CONTACTO DEL CREADOR
+   ===================================================== */
+
+.contacto-creador {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
 
 }
 
@@ -1512,6 +1596,8 @@ h2 {
 
     text-decoration: none;
 
+    font-family: "Poppins", sans-serif;
+
     font-size: 13px;
 
     transition: 0.3s;
@@ -1521,6 +1607,39 @@ h2 {
 
 .contacto-creador a:hover {
 
-    color: #6f5b16;
+    color: #665516;
+
+}
+
+
+.contacto-creador i {
+
+    font-size: 18px;
+
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .footer-contenido {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .contacto-creador {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
 
 }

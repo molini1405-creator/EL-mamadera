@@ -338,8 +338,8 @@
 </section>
 
 
-<!-- =====================================================
-     CREADOR DE LA PÁGINA
+<<!-- =====================================================
+     FOOTER DEL CREADOR
      ===================================================== -->
 
 <footer class="footer-creador">
@@ -353,7 +353,7 @@
         <button
             type="button"
             class="btn-datos-creador"
-            onclick="mostrarDatosCreador()"
+            id="btn-datos-creador"
         >
             Datos del creador
         </button>
@@ -361,7 +361,7 @@
     </div>
 
 
-    <!-- INFORMACIÓN DEL CREADOR -->
+    <!-- DATOS DEL CREADOR -->
 
     <div
         id="datos-creador"
@@ -376,7 +376,7 @@
             Juan Francisco Molina
         </p>
 
-        <p>
+        <p class="profesion-creador">
             Desarrollo y diseño web
         </p>
 
@@ -390,7 +390,6 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 +54 9 261 207-0017
             </a>
-
 
             <a
                 href="https://instagram.com/juan.molina.dev"
@@ -409,14 +408,28 @@
 
 <script>
 
-function mostrarDatosCreador() {
+document.addEventListener("DOMContentLoaded", function () {
 
+    const boton = document.getElementById("btn-datos-creador");
     const datos = document.getElementById("datos-creador");
 
-    datos.classList.toggle("mostrar");
+    boton.addEventListener("click", function () {
 
-}
+        datos.classList.toggle("mostrar");
+
+        if (datos.classList.contains("mostrar")) {
+
+            boton.textContent = "Ocultar datos";
+
+        } else {
+
+            boton.textContent = "Datos del creador";
+
+        }
+
+    });
+
+});
 
 </script>
-
 {% endblock %}
