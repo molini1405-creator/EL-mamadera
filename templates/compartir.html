@@ -66,8 +66,18 @@
 
                 <div class="campo">
 
-                    <label for="foto">
+                    <label>
                         Compartí una foto de la noche
+                    </label>
+
+                    <label for="foto" class="selector-foto">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                        <span id="nombre-foto">
+                            Seleccionar una foto
+                        </span>
+
                     </label>
 
                     <input
@@ -76,10 +86,11 @@
                         name="foto"
                         accept="image/*"
                         required
+                        hidden
                     >
 
                     <small>
-                        Podés subir una foto de tu evento.
+                        JPG, PNG o WEBP
                     </small>
 
                 </div>
@@ -117,5 +128,29 @@
     </div>
 
 </section>
+
+
+<!-- MOSTRAR NOMBRE DEL ARCHIVO -->
+
+<script>
+
+    const inputFoto = document.getElementById("foto");
+    const nombreFoto = document.getElementById("nombre-foto");
+
+    inputFoto.addEventListener("change", function () {
+
+        if (this.files.length > 0) {
+
+            nombreFoto.textContent = this.files[0].name;
+
+        } else {
+
+            nombreFoto.textContent = "Seleccionar una foto";
+
+        }
+
+    });
+
+</script>
 
 {% endblock %}
