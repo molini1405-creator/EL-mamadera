@@ -1474,41 +1474,84 @@ h2 {
 
 
 /* =====================================================
-   DATOS DEL CREADOR
+   FOOTER DEL CREADOR
    ===================================================== */
 
-.datos-creador {
+.footer-creador {
 
-    max-width: 600px;
+    background: #d8c98a;
 
-    margin: 0 auto;
+    color: #111;
 
-    padding: 0;
+    text-align: center;
 
-    max-height: 0;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    transition:
-        max-height 0.5s ease,
-        opacity 0.4s ease,
-        padding 0.4s ease;
+    padding: 28px 20px 0;
 
 }
 
 
-.datos-creador.mostrar {
+.footer-contenido {
 
-    max-height: 300px;
+    display: flex;
 
-    padding: 30px 20px;
+    align-items: center;
 
-    opacity: 1;
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
 
 }
 
+
+.footer-contenido p {
+
+    margin: 0;
+
+    color: #242424;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+.btn-datos-creador {
+
+    background: rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(0, 0, 0, 0.35);
+
+    border-radius: 30px;
+
+    padding: 9px 20px;
+
+    color: #111;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-datos-creador:hover {
+
+    background: #111;
+
+    color: #d8c98a;
+
+    transform: translateY(-2px);
+
+}
 
 .datos-creador h3 {
 
@@ -1525,17 +1568,6 @@ h2 {
 }
 
 
-.datos-creador p {
-
-    margin: 5px 0;
-
-    color: #555;
-
-    font-size: 14px;
-
-}
-
-
 .datos-creador .nombre-creador {
 
     color: #111;
@@ -1543,23 +1575,6 @@ h2 {
     font-size: 18px;
 
     font-weight: 600;
-
-}
-
-
-.contacto-creador {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 20px;
-
-    flex-wrap: wrap;
-
-    margin-top: 20px;
 
 }
 
@@ -1585,45 +1600,6 @@ h2 {
 
 .contacto-creador a:hover {
 
-    color: #8b6f18;
-
-}
-
-
-.contacto-creador i {
-
-    font-size: 18px;
-
-}
-
-
-/* =====================================================
-   CREADOR - CELULAR
-   ===================================================== */
-
-@media (max-width: 600px) {
-
-    .footer-contenido {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-    }
-
-
-    .contacto-botones {
-
-        flex-direction: column;
-
-    }
-
-
-    .btn-whatsapp,
-    .btn-instagram {
-
-        width: 220px;
-
-    }
+    color: #6f5b16;
 
 }
