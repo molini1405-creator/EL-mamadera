@@ -283,20 +283,140 @@
     </div>
 
 </section>
-<!-- CONTACTO -->
+<!-- =====================================================
+     CONTACTO
+     ===================================================== -->
+
 <section class="contacto">
 
     <div class="container">
 
-        <h2>¿Organizamos tu próximo evento?</h2>
+        <h2>
+            HABLEMOS DE TU EVENTO
+        </h2>
 
-        <a href="#" class="btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-            Consultanos
-        </a>
+        <p class="contacto-texto">
+            ¿Estás pensando en hacer algo diferente?
+            Escribinos y armemos juntos una propuesta para tu evento.
+        </p>
+
+        <div class="contacto-botones">
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/5492612070017"
+                target="_blank"
+                class="btn-whatsapp"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                WhatsApp
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://instagram.com/juan.molina.dev"
+                target="_blank"
+                class="btn-instagram"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+                Instagram
+
+            </a>
+
+        </div>
 
     </div>
 
 </section>
+
+
+<!-- =====================================================
+     CREADOR DE LA PÁGINA
+     ===================================================== -->
+
+<footer class="footer-creador">
+
+    <div class="footer-contenido">
+
+        <p>
+            © 2026 El Mamadera
+        </p>
+
+        <button
+            type="button"
+            class="btn-datos-creador"
+            onclick="mostrarDatosCreador()"
+        >
+            Datos del creador
+        </button>
+
+    </div>
+
+
+    <!-- INFORMACIÓN DEL CREADOR -->
+
+    <div
+        id="datos-creador"
+        class="datos-creador"
+    >
+
+        <h3>
+            Datos del creador
+        </h3>
+
+        <p class="nombre-creador">
+            Juan Francisco Molina
+        </p>
+
+        <p>
+            Desarrollo y diseño web
+        </p>
+
+
+        <div class="contacto-creador">
+
+            <a
+                href="https://wa.me/5492612070017"
+                target="_blank"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+                +54 9 261 207-0017
+            </a>
+
+
+            <a
+                href="https://instagram.com/juan.molina.dev"
+                target="_blank"
+            >
+                <i class="fa-brands fa-instagram"></i>
+                @juan.molina.dev
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function mostrarDatosCreador() {
+
+    const datos = document.getElementById("datos-creador");
+
+    datos.classList.toggle("mostrar");
+
+}
+
+</script>
 
 {% endblock %}
