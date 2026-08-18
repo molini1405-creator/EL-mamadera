@@ -1400,9 +1400,9 @@ h2 {
 
 .footer-creador {
 
-    background: #d8c98a;
+    background: #d4af37;
 
-    color: #111;
+    color: #111111;
 
     text-align: center;
 
@@ -1430,7 +1430,7 @@ h2 {
 
     margin: 0;
 
-    color: #292929;
+    color: #111111;
 
     font-family: "Poppins", sans-serif;
 
@@ -1447,13 +1447,13 @@ h2 {
 
     padding: 10px 22px;
 
-    background: rgba(0, 0, 0, 0.08);
+    background: transparent;
 
-    border: 1px solid rgba(0, 0, 0, 0.35);
+    border: 1px solid #111111;
 
     border-radius: 30px;
 
-    color: #111;
+    color: #111111;
 
     font-family: "Montserrat", sans-serif;
 
@@ -1472,9 +1472,9 @@ h2 {
 
 .btn-datos-creador:hover {
 
-    background: #111;
+    background: #111111;
 
-    color: #d8c98a;
+    color: #d4af37;
 
     transform: translateY(-2px);
 
@@ -1528,7 +1528,7 @@ h2 {
 
     letter-spacing: 2px;
 
-    color: #111;
+    color: #111111;
 
 }
 
@@ -1592,7 +1592,7 @@ h2 {
 
     gap: 8px;
 
-    color: #111;
+    color: #111111;
 
     text-decoration: none;
 
@@ -1607,7 +1607,7 @@ h2 {
 
 .contacto-creador a:hover {
 
-    color: #665516;
+    color: #333333;
 
 }
 
