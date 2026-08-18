@@ -66,18 +66,8 @@
 
                 <div class="campo">
 
-                    <label>
+                    <label for="foto">
                         Compartí una foto de la noche
-                    </label>
-
-                    <label for="foto" class="selector-foto">
-
-                        <i class="fa-solid fa-camera"></i>
-
-                        <span id="nombre-foto">
-                            Seleccionar una foto
-                        </span>
-
                     </label>
 
                     <input
@@ -86,11 +76,21 @@
                         name="foto"
                         accept="image/*"
                         required
-                        hidden
+                        style="
+                            display: block !important;
+                            width: 100%;
+                            padding: 15px;
+                            background: #111111;
+                            color: white;
+                            border: 1px solid #d4af37;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            font-family: Poppins, sans-serif;
+                        "
                     >
 
                     <small>
-                        JPG, PNG o WEBP
+                        Podés subir una foto de tu evento.
                     </small>
 
                 </div>
@@ -116,9 +116,7 @@
                     type="submit"
                     class="btn-principal btn-enviar"
                 >
-
                     📸 Publicar experiencia
-
                 </button>
 
             </form>
@@ -128,29 +126,5 @@
     </div>
 
 </section>
-
-
-<!-- MOSTRAR NOMBRE DEL ARCHIVO -->
-
-<script>
-
-    const inputFoto = document.getElementById("foto");
-    const nombreFoto = document.getElementById("nombre-foto");
-
-    inputFoto.addEventListener("change", function () {
-
-        if (this.files.length > 0) {
-
-            nombreFoto.textContent = this.files[0].name;
-
-        } else {
-
-            nombreFoto.textContent = "Seleccionar una foto";
-
-        }
-
-    });
-
-</script>
 
 {% endblock %}
