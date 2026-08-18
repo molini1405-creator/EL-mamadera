@@ -1038,3 +1038,279 @@ h2 {
     }
 
 }
+/* =====================================================
+   COMPARTIR EXPERIENCIA
+   ===================================================== */
+
+.compartir-experiencia {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212, 175, 55, 0.05),
+            transparent 65%
+        );
+
+    text-align: center;
+}
+
+
+.compartir-intro {
+    max-width: 650px;
+
+    margin: -15px auto 50px;
+
+    color: var(--gris);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+.compartir-intro strong {
+    color: var(--dorado-claro);
+}
+
+
+/* =====================================================
+   FORMULARIO
+   ===================================================== */
+
+.formulario-experiencia {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0d0d0d
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.2);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+
+    text-align: left;
+}
+
+
+.campo {
+    margin-bottom: 25px;
+}
+
+
+.campo label:not(.selector-foto) {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--dorado-claro);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+
+.campo input[type="text"],
+.campo textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    background: #080808;
+
+    border: 1px solid rgba(212, 175, 55, 0.2);
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.campo input[type="text"]:focus,
+.campo textarea:focus {
+
+    border-color: var(--dorado);
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.12);
+}
+
+
+.campo textarea {
+
+    resize: vertical;
+
+    min-height: 130px;
+}
+
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+
+    color: #666;
+}
+
+
+/* =====================================================
+   SELECTOR DE FOTO
+   ===================================================== */
+
+.selector-foto {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: 1px dashed rgba(212, 175, 55, 0.45);
+
+    border-radius: 12px;
+
+    background: rgba(212, 175, 55, 0.04);
+
+    color: var(--dorado-claro);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.selector-foto:hover {
+
+    background: rgba(212, 175, 55, 0.1);
+
+    border-color: var(--dorado);
+
+    transform: translateY(-2px);
+}
+
+
+.selector-foto i {
+
+    font-size: 22px;
+
+    color: var(--dorado);
+}
+
+
+.campo small {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   AVISO
+   ===================================================== */
+
+.aviso-experiencia {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin: 25px 0;
+
+    padding: 15px;
+
+    background: rgba(212, 175, 55, 0.04);
+
+    border-left: 2px solid var(--dorado);
+
+    border-radius: 5px;
+}
+
+
+.aviso-experiencia i {
+
+    color: var(--dorado);
+
+    margin-top: 3px;
+}
+
+
+.aviso-experiencia p {
+
+    margin: 0;
+
+    color: #999;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.btn-enviar {
+
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .formulario-experiencia {
+
+        padding: 25px 20px;
+
+    }
+
+}
