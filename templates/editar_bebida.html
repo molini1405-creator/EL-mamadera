@@ -10,18 +10,22 @@
             EDITAR BEBIDA
         </h1>
 
-        <div class="formulario-experiencia">
+        <div class="form-admin">
 
-            <form method="POST">
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
+                    <label for="nombre">
                         Nombre
                     </label>
 
                     <input
                         type="text"
+                        id="nombre"
                         name="nombre"
                         value="{{ bebida.nombre }}"
                         required
@@ -30,28 +34,33 @@
                 </div>
 
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
+                    <label for="descripcion">
                         Descripción
                     </label>
 
                     <textarea
+                        id="descripcion"
                         name="descripcion"
-                        rows="5"
+                        rows="4"
                         required
                     >{{ bebida.descripcion }}</textarea>
 
                 </div>
 
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
+                    <label for="categoria">
                         Categoría
                     </label>
 
-                    <select name="categoria" required>
+                    <select
+                        id="categoria"
+                        name="categoria"
+                        required
+                    >
 
                         <option value="cocteles"
                             {% if bebida.categoria == "cocteles" %}selected{% endif %}>
@@ -78,49 +87,71 @@
                             Sin alcohol
                         </option>
 
-                        <option value="cocteles aperitivos"
-                            {% if bebida.categoria == "cocteles aperitivos" %}selected{% endif %}>
-                            Cócteles + Aperitivos
-                        </option>
-
-                        <option value="aperitivos sin-alcohol"
-                            {% if bebida.categoria == "aperitivos sin-alcohol" %}selected{% endif %}>
-                            Aperitivos + Sin alcohol
-                        </option>
-
                     </select>
 
                 </div>
 
 
-                <div class="campo">
+                <!-- FOTO ACTUAL -->
+
+                {% if bebida.imagen %}
+
+                <div class="foto-actual">
 
                     <label>
-                        URL de imagen
+                        Foto actual
                     </label>
 
-                    <input
-                        type="text"
-                        name="imagen"
-                        value="{{ bebida.imagen or '' }}"
+                    <img
+                        src="{{ bebida.imagen }}"
+                        alt="{{ bebida.nombre }}"
                     >
 
                 </div>
 
+                {% endif %}
 
-                <button
-                    type="submit"
-                    class="btn-principal"
-                >
-                    💾 Guardar cambios
-                </button>
 
-                <a
-                    href="{{ url_for('admin') }}"
-                    class="btn-principal"
-                >
-                    Cancelar
-                </a>
+                <!-- NUEVA FOTO -->
+
+                <div class="campo-admin">
+
+                    <label for="foto">
+                        Cambiar foto
+                    </label>
+
+                    <input
+                        type="file"
+                        id="foto"
+                        name="foto"
+                        accept="image/*"
+                    >
+
+                    <small>
+                        Si no seleccionás ninguna imagen,
+                        se conservará la foto actual.
+                    </small>
+
+                </div>
+
+
+                <div class="admin-form-botones">
+
+                    <button
+                        type="submit"
+                        class="btn-principal"
+                    >
+                        💾 Guardar cambios
+                    </button>
+
+                    <a
+                        href="{{ url_for('admin') }}"
+                        class="btn-editar"
+                    >
+                        Cancelar
+                    </a>
+
+                </div>
 
             </form>
 

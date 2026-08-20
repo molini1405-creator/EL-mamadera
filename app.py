@@ -224,25 +224,45 @@ def agregar_bebida():
         nombre = request.form.get("nombre")
         descripcion = request.form.get("descripcion")
         categoria = request.form.get("categoria")
-        imagen = request.form.get("imagen")
+        foto = request.files.get("foto")
 
         if not nombre or not descripcion or not categoria:
             return "Todos los campos son obligatorios", 400
 
-        nueva_bebida = Bebida(
-            nombre=nombre,
-            descripcion=descripcion,
-            categoria=categoria,
-            imagen=imagen
-        )
+        try:
 
-        db.session.add(nueva_bebida)
-        db.session.commit()
+            url_foto = None
 
-        return redirect("/admin")
+            if foto and foto.filename:
+
+                resultado = cloudinary.uploader.upload(
+                    foto,
+                    folder="el_mamadera/bebidas"
+                )
+
+                url_foto = resultado.get("secure_url")
+
+            nueva_bebida = Bebida(
+                nombre=nombre,
+                descripcion=descripcion,
+                categoria=categoria,
+                imagen=url_foto
+            )
+
+            db.session.add(nueva_bebida)
+            db.session.commit()
+
+            return redirect("/admin")
+
+        except Exception as e:
+
+            db.session.rollback()
+
+            print("ERROR:", e)
+
+            return "Ocurrió un error al agregar la bebida.", 500
 
     return render_template("agregar_bebida.html")
-
 
 # =====================================================
 # EDITAR BEBIDA
@@ -255,14 +275,40 @@ def editar_bebida(id):
 
     if request.method == "POST":
 
-        bebida.nombre = request.form.get("nombre")
-        bebida.descripcion = request.form.get("descripcion")
-        bebida.categoria = request.form.get("categoria")
-        bebida.imagen = request.form.get("imagen")
+        nombre = request.form.get("nombre")
+        descripcion = request.form.get("descripcion")
+        categoria = request.form.get("categoria")
+        foto = request.files.get("foto")
 
-        db.session.commit()
+        if not nombre or not descripcion or not categoria:
+            return "Todos los campos son obligatorios", 400
 
-        return redirect("/admin")
+        try:
+
+            bebida.nombre = nombre
+            bebida.descripcion = descripcion
+            bebida.categoria = categoria
+
+            if foto and foto.filename:
+
+                resultado = cloudinary.uploader.upload(
+                    foto,
+                    folder="el_mamadera/bebidas"
+                )
+
+                bebida.imagen = resultado.get("secure_url")
+
+            db.session.commit()
+
+            return redirect("/admin")
+
+        except Exception as e:
+
+            db.session.rollback()
+
+            print("ERROR:", e)
+
+            return "Ocurrió un error al editar la bebida.", 500
 
     return render_template(
         "editar_bebida.html",
