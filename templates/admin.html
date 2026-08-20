@@ -4,24 +4,39 @@
 
 <section class="admin-panel">
 
-    <div class="container">
+<div class="container">
 
-        <h1 class="titulo-neon">
-            ADMINISTRACIÓN
-        </h1>
+    <!-- =====================================================
+         TÍTULO
+         ===================================================== -->
+
+    <h1 class="titulo-neon">
+        ADMINISTRACIÓN
+    </h1>
 
 
-        <!-- =====================================================
-             EXPERIENCIAS
-             ===================================================== -->
+    <!-- =====================================================
+         EXPERIENCIAS PENDIENTES
+         ===================================================== -->
 
-        <h2>
-            Experiencias pendientes
-        </h2>
+    <div class="admin-seccion">
+
+        <div class="admin-titulo-fila">
+
+            <h2>
+                Experiencias pendientes
+            </h2>
+
+            <span class="admin-contador">
+                {{ pendientes|length }}
+            </span>
+
+        </div>
+
 
         {% if pendientes %}
 
-            <div class="admin-experiencias">
+            <div class="admin-grid">
 
                 {% for experiencia in pendientes %}
 
@@ -32,9 +47,11 @@
                             <img
                                 src="{{ experiencia.foto }}"
                                 alt="Foto de {{ experiencia.nombre_cliente }}"
+                                class="admin-imagen"
                             >
 
                         {% endif %}
+
 
                         <div class="admin-info">
 
@@ -51,6 +68,7 @@
                                 {{ experiencia.tipo_evento }}
                             </small>
 
+
                             <div class="admin-botones">
 
                                 <form
@@ -60,7 +78,7 @@
 
                                     <button
                                         type="submit"
-                                        class="btn-principal"
+                                        class="btn-principal btn-admin"
                                     >
                                         ✅ Aprobar
                                     </button>
@@ -76,7 +94,7 @@
 
                                     <button
                                         type="submit"
-                                        class="btn-eliminar"
+                                        class="btn-eliminar btn-admin"
                                     >
                                         🗑️ Eliminar
                                     </button>
@@ -111,22 +129,24 @@
 
         {% endif %}
 
+    </div>
 
-        <!-- =====================================================
-             BEBIDAS
-             ===================================================== -->
 
-        <div class="admin-separador"></div>
+    <!-- =====================================================
+         ADMINISTRAR BEBIDAS
+         ===================================================== -->
 
-        <div class="admin-titulo-bebidas">
+    <div class="admin-seccion bebidas-admin">
+
+        <div class="admin-titulo-fila">
 
             <h2>
-                Nuestra carta
+                Administrar bebidas
             </h2>
 
             <a
                 href="{{ url_for('agregar_bebida') }}"
-                class="btn-principal"
+                class="btn-principal btn-agregar"
             >
                 ➕ Agregar bebida
             </a>
@@ -136,43 +156,52 @@
 
         {% if bebidas %}
 
-            <div class="admin-bebidas">
+            <div class="bebidas-admin-grid">
 
                 {% for bebida in bebidas %}
 
-                    <div class="admin-card bebida-admin">
+                    <div class="bebida-admin-card">
 
-                        {% if bebida.imagen %}
+                        <div class="bebida-admin-imagen">
 
-                            <img
-                                src="{{ bebida.imagen }}"
-                                alt="{{ bebida.nombre }}"
-                            >
+                            {% if bebida.imagen %}
 
-                        {% endif %}
+                                <img
+                                    src="{{ bebida.imagen }}"
+                                    alt="{{ bebida.nombre }}"
+                                >
+
+                            {% else %}
+
+                                <div class="sin-imagen">
+                                    🍹
+                                </div>
+
+                            {% endif %}
+
+                        </div>
 
 
-                        <div class="admin-info">
+                        <div class="bebida-admin-info">
 
                             <h3>
                                 {{ bebida.nombre }}
                             </h3>
 
+                            <span class="bebida-categoria">
+                                {{ bebida.categoria }}
+                            </span>
+
                             <p>
                                 {{ bebida.descripcion }}
                             </p>
 
-                            <small>
-                                Categoría:
-                                {{ bebida.categoria }}
-                            </small>
 
-
-                            <div class="admin-botones">
+                            <div class="bebida-admin-botones">
 
                                 <a
                                     href="{{ url_for('editar_bebida', id=bebida.id) }}"
-                                    class="btn-principal"
+                                    class="btn-editar"
                                 >
                                     ✏️ Editar
                                 </a>
@@ -181,7 +210,7 @@
                                 <form
                                     method="POST"
                                     action="{{ url_for('eliminar_bebida', id=bebida.id) }}"
-                                    onsubmit="return confirm('¿Seguro que querés eliminar esta bebida?');"
+                                    onsubmit="return confirm('¿Seguro que querés eliminar {{ bebida.nombre }}?');"
                                 >
 
                                     <button
@@ -203,9 +232,27 @@
 
             </div>
 
+        {% else %}
+
+            <div class="experiencias-vacias">
+
+                <i class="fa-solid fa-martini-glass"></i>
+
+                <h3>
+                    No hay bebidas cargadas
+                </h3>
+
+                <p>
+                    Agregá la primera bebida a la carta.
+                </p>
+
+            </div>
+
         {% endif %}
 
     </div>
+
+</div>
 
 </section>
 
