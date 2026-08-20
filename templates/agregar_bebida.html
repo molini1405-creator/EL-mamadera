@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="admin-panel">
+
+    <div class="container">
+
+        <h1 class="titulo-neon">
+            AGREGAR BEBIDA
+        </h1>
+
+        <div class="formulario-experiencia">
+
+            <form method="POST">
+
+                <div class="campo">
+
+                    <label>
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nombre"
+                        placeholder="Ej: Margarita"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Descripción
+                    </label>
+
+                    <textarea
+                        name="descripcion"
+                        rows="5"
+                        placeholder="Descripción de la bebida"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Categoría
+                    </label>
+
+                    <select name="categoria" required>
+
+                        <option value="cocteles">
+                            Cócteles
+                        </option>
+
+                        <option value="aperitivos">
+                            Aperitivos
+                        </option>
+
+                        <option value="cervezas">
+                            Cervezas
+                        </option>
+
+                        <option value="gaseosas">
+                            Gaseosas
+                        </option>
+
+                        <option value="sin-alcohol">
+                            Sin alcohol
+                        </option>
+
+                        <option value="cocteles aperitivos">
+                            Cócteles + Aperitivos
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        URL de imagen
+                    </label>
+
+                    <input
+                        type="text"
+                        name="imagen"
+                        placeholder="/static/img/tragos/ejemplo.jpg"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-principal"
+                >
+                    ➕ Agregar bebida
+                </button>
+
+                <a
+                    href="{{ url_for('admin') }}"
+                    class="btn-principal"
+                >
+                    Volver
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

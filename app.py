@@ -411,11 +411,79 @@ def admin():
         Experiencia.fecha.desc()
     ).all()
 
+    bebidas = Bebida.query.order_by(
+        Bebida.id
+    ).all()
+
     return render_template(
         "admin.html",
-        pendientes=pendientes
+        pendientes=pendientes,
+        bebidas=bebidas
     )
 
+# =====================================================
+# ADMINISTRAR BEBIDAS
+# =====================================================
+
+@app.route("/admin/bebidas/agregar", methods=["GET", "POST"])
+def agregar_bebida():
+
+    if request.method == "POST":
+
+        nombre = request.form.get("nombre")
+        descripcion = request.form.get("descripcion")
+        categoria = request.form.get("categoria")
+        imagen = request.form.get("imagen")
+
+        if not nombre or not descripcion or not categoria:
+            return "Todos los campos son obligatorios", 400
+
+        nueva_bebida = Bebida(
+            nombre=nombre,
+            descripcion=descripcion,
+            categoria=categoria,
+            imagen=imagen
+        )
+
+        db.session.add(nueva_bebida)
+        db.session.commit()
+
+        return redirect("/admin")
+
+    return render_template("agregar_bebida.html")
+
+
+@app.route("/admin/bebidas/editar/<int:id>", methods=["GET", "POST"])
+def editar_bebida(id):
+
+    bebida = Bebida.query.get_or_404(id)
+
+    if request.method == "POST":
+
+        bebida.nombre = request.form.get("nombre")
+        bebida.descripcion = request.form.get("descripcion")
+        bebida.categoria = request.form.get("categoria")
+        bebida.imagen = request.form.get("imagen")
+
+        db.session.commit()
+
+        return redirect("/admin")
+
+    return render_template(
+        "editar_bebida.html",
+        bebida=bebida
+    )
+
+
+@app.route("/admin/bebidas/eliminar/<int:id>", methods=["POST"])
+def eliminar_bebida(id):
+
+    bebida = Bebida.query.get_or_404(id)
+
+    db.session.delete(bebida)
+    db.session.commit()
+
+    return redirect("/admin")
 
 # =====================================================
 # APROBAR EXPERIENCIA

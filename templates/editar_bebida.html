@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="admin-panel">
+
+    <div class="container">
+
+        <h1 class="titulo-neon">
+            EDITAR BEBIDA
+        </h1>
+
+        <div class="formulario-experiencia">
+
+            <form method="POST">
+
+                <div class="campo">
+
+                    <label>
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nombre"
+                        value="{{ bebida.nombre }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Descripción
+                    </label>
+
+                    <textarea
+                        name="descripcion"
+                        rows="5"
+                        required
+                    >{{ bebida.descripcion }}</textarea>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Categoría
+                    </label>
+
+                    <select name="categoria" required>
+
+                        <option value="cocteles"
+                            {% if bebida.categoria == "cocteles" %}selected{% endif %}>
+                            Cócteles
+                        </option>
+
+                        <option value="aperitivos"
+                            {% if bebida.categoria == "aperitivos" %}selected{% endif %}>
+                            Aperitivos
+                        </option>
+
+                        <option value="cervezas"
+                            {% if bebida.categoria == "cervezas" %}selected{% endif %}>
+                            Cervezas
+                        </option>
+
+                        <option value="gaseosas"
+                            {% if bebida.categoria == "gaseosas" %}selected{% endif %}>
+                            Gaseosas
+                        </option>
+
+                        <option value="sin-alcohol"
+                            {% if bebida.categoria == "sin-alcohol" %}selected{% endif %}>
+                            Sin alcohol
+                        </option>
+
+                        <option value="cocteles aperitivos"
+                            {% if bebida.categoria == "cocteles aperitivos" %}selected{% endif %}>
+                            Cócteles + Aperitivos
+                        </option>
+
+                        <option value="aperitivos sin-alcohol"
+                            {% if bebida.categoria == "aperitivos sin-alcohol" %}selected{% endif %}>
+                            Aperitivos + Sin alcohol
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        URL de imagen
+                    </label>
+
+                    <input
+                        type="text"
+                        name="imagen"
+                        value="{{ bebida.imagen or '' }}"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-principal"
+                >
+                    💾 Guardar cambios
+                </button>
+
+                <a
+                    href="{{ url_for('admin') }}"
+                    class="btn-principal"
+                >
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

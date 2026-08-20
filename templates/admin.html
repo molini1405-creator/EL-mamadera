@@ -10,6 +10,11 @@
             ADMINISTRACIÓN
         </h1>
 
+
+        <!-- =====================================================
+             EXPERIENCIAS
+             ===================================================== -->
+
         <h2>
             Experiencias pendientes
         </h2>
@@ -101,6 +106,100 @@
                 <p>
                     Todas las experiencias fueron revisadas.
                 </p>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- =====================================================
+             BEBIDAS
+             ===================================================== -->
+
+        <div class="admin-separador"></div>
+
+        <div class="admin-titulo-bebidas">
+
+            <h2>
+                Nuestra carta
+            </h2>
+
+            <a
+                href="{{ url_for('agregar_bebida') }}"
+                class="btn-principal"
+            >
+                ➕ Agregar bebida
+            </a>
+
+        </div>
+
+
+        {% if bebidas %}
+
+            <div class="admin-bebidas">
+
+                {% for bebida in bebidas %}
+
+                    <div class="admin-card bebida-admin">
+
+                        {% if bebida.imagen %}
+
+                            <img
+                                src="{{ bebida.imagen }}"
+                                alt="{{ bebida.nombre }}"
+                            >
+
+                        {% endif %}
+
+
+                        <div class="admin-info">
+
+                            <h3>
+                                {{ bebida.nombre }}
+                            </h3>
+
+                            <p>
+                                {{ bebida.descripcion }}
+                            </p>
+
+                            <small>
+                                Categoría:
+                                {{ bebida.categoria }}
+                            </small>
+
+
+                            <div class="admin-botones">
+
+                                <a
+                                    href="{{ url_for('editar_bebida', id=bebida.id) }}"
+                                    class="btn-principal"
+                                >
+                                    ✏️ Editar
+                                </a>
+
+
+                                <form
+                                    method="POST"
+                                    action="{{ url_for('eliminar_bebida', id=bebida.id) }}"
+                                    onsubmit="return confirm('¿Seguro que querés eliminar esta bebida?');"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="btn-eliminar"
+                                    >
+                                        🗑️ Eliminar
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
 
             </div>
 
