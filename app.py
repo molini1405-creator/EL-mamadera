@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request,redirect
+from flask import Flask, render_template, request, redirect
 from extensions import db
 
 import cloudinary
@@ -8,6 +8,8 @@ import cloudinary.uploader
 
 
 app = Flask(__name__)
+
+
 # =====================================================
 # CLOUDINARY
 # =====================================================
@@ -17,6 +19,7 @@ cloudinary.config(
     api_key=os.environ.get("CLOUDINARY_API_KEY"),
     api_secret=os.environ.get("CLOUDINARY_API_SECRET")
 )
+
 
 # =====================================================
 # BASE DE DATOS
@@ -42,11 +45,14 @@ else:
 
 
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
 
+
+# =====================================================
+# MODELOS
+# =====================================================
 
 from models.experiencia import Experiencia
 
@@ -60,8 +66,13 @@ def inicio():
     return render_template("index.html")
 
 
+# =====================================================
+# CASAMIENTOS
+# =====================================================
+
 @app.route("/casamientos")
 def casamientos():
+
     experiencias = Experiencia.query.filter_by(
         tipo_evento="casamiento",
         aprobada=True
@@ -75,8 +86,13 @@ def casamientos():
     )
 
 
+# =====================================================
+# CUMPLEAÑOS
+# =====================================================
+
 @app.route("/cumpleanos")
 def cumpleanos():
+
     experiencias = Experiencia.query.filter_by(
         tipo_evento="cumpleanos",
         aprobada=True
@@ -88,6 +104,11 @@ def cumpleanos():
         "cumpleanos.html",
         experiencias=experiencias
     )
+
+
+# =====================================================
+# COMPARTIR EXPERIENCIA
+# =====================================================
 
 @app.route("/compartir/<tipo_evento>", methods=["GET", "POST"])
 def compartir_experiencia(tipo_evento):
@@ -106,9 +127,9 @@ def compartir_experiencia(tipo_evento):
 
         try:
 
-            # =====================================================
+            # =================================================
             # SUBIR FOTO A CLOUDINARY
-            # =====================================================
+            # =================================================
 
             resultado = cloudinary.uploader.upload(
                 foto,
@@ -118,9 +139,9 @@ def compartir_experiencia(tipo_evento):
             url_foto = resultado.get("secure_url")
 
 
-            # =====================================================
-            # GUARDAR EXPERIENCIA EN POSTGRESQL
-            # =====================================================
+            # =================================================
+            # GUARDAR EN POSTGRESQL
+            # =================================================
 
             nueva_experiencia = Experiencia(
                 nombre_cliente=nombre,
@@ -136,10 +157,12 @@ def compartir_experiencia(tipo_evento):
 
             return """
                 <h2>¡Gracias por compartir tu experiencia! 🥂</h2>
+
                 <p>
                     Tu experiencia fue enviada correctamente
                     y será revisada antes de publicarse.
                 </p>
+
                 <a href="/">Volver al inicio</a>
             """
 
@@ -158,15 +181,10 @@ def compartir_experiencia(tipo_evento):
         tipo_evento=tipo_evento
     )
 
-# =====================================================
-# EJECUTAR
-# =====================================================
 
-with app.app_context():
-    db.create_all()
-    
-if __name__ == "__main__":
-    app.run(debug=True)
+# =====================================================
+# ADMIN
+# =====================================================
 
 @app.route("/admin")
 def admin():
@@ -183,6 +201,10 @@ def admin():
     )
 
 
+# =====================================================
+# APROBAR EXPERIENCIA
+# =====================================================
+
 @app.route("/admin/aprobar/<int:id>", methods=["POST"])
 def aprobar_experiencia(id):
 
@@ -195,6 +217,10 @@ def aprobar_experiencia(id):
     return redirect("/admin")
 
 
+# =====================================================
+# ELIMINAR EXPERIENCIA
+# =====================================================
+
 @app.route("/admin/eliminar/<int:id>", methods=["POST"])
 def eliminar_experiencia(id):
 
@@ -205,3 +231,19 @@ def eliminar_experiencia(id):
     db.session.commit()
 
     return redirect("/admin")
+
+
+# =====================================================
+# CREAR TABLAS
+# =====================================================
+
+with app.app_context():
+    db.create_all()
+
+
+# =====================================================
+# EJECUTAR
+# =====================================================
+
+if __name__ == "__main__":
+    app.run(debug=True)
