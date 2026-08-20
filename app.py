@@ -64,7 +64,15 @@ from models.bebida import Bebida
 
 @app.route("/")
 def inicio():
-    return render_template("index.html")
+
+    bebidas = Bebida.query.order_by(
+        Bebida.id
+    ).all()
+
+    return render_template(
+        "index.html",
+        bebidas=bebidas
+    )
 
 
 # =====================================================
