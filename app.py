@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from extensions import db
 
 import cloudinary
@@ -8,7 +8,10 @@ import cloudinary.uploader
 
 
 app = Flask(__name__)
-
+app.secret_key = os.environ.get(
+    "SECRET_KEY",
+    "clave-secreta-el-mamadera"
+)
 
 # =====================================================
 # CLOUDINARY
@@ -191,9 +194,58 @@ def compartir_experiencia(tipo_evento):
 # =====================================================
 # ADMIN
 # =====================================================
+# =====================================================
+# LOGIN ADMINISTRADOR
+# =====================================================
+
+ADMIN_PASSWORD = os.environ.get(
+    "ADMIN_PASSWORD",
+    "1234"
+)
+
+
+@app.route("/admin/login", methods=["GET", "POST"])
+def login_admin():
+
+    if request.method == "POST":
+
+        password = request.form.get("password")
+
+        if password == ADMIN_PASSWORD:
+
+            session["admin_logged"] = True
+
+            return redirect("/admin")
+
+        return render_template(
+            "login_admin.html",
+            error="Contraseña incorrecta"
+        )
+
+    return render_template("login_admin.html")
+
+
+@app.route("/admin/logout")
+def logout_admin():
+
+    session.pop("admin_logged", None)
+
+    return redirect("/admin/login")
+
+def admin_requerido():
+
+    if not session.get("admin_logged"):
+        return redirect("/admin/login")
+
+    return None
 
 @app.route("/admin")
 def admin():
+
+    acceso = admin_requerido()
+
+    if acceso:
+        return acceso
 
     pendientes = Experiencia.query.filter_by(
         aprobada=False
@@ -218,6 +270,11 @@ def admin():
 
 @app.route("/admin/bebidas/agregar", methods=["GET", "POST"])
 def agregar_bebida():
+
+    acceso = admin_requerido()
+
+    if acceso:
+        return acceso
 
     if request.method == "POST":
 
@@ -271,6 +328,11 @@ def agregar_bebida():
 @app.route("/admin/bebidas/editar/<int:id>", methods=["GET", "POST"])
 def editar_bebida(id):
 
+    acceso = admin_requerido()
+
+    if acceso:
+        return acceso
+
     bebida = Bebida.query.get_or_404(id)
 
     if request.method == "POST":
@@ -322,6 +384,11 @@ def editar_bebida(id):
 
 @app.route("/admin/bebidas/eliminar/<int:id>", methods=["POST"])
 def eliminar_bebida(id):
+
+    acceso = admin_requerido()
+
+    if acceso:
+        return acceso
 
     bebida = Bebida.query.get_or_404(id)
 
@@ -494,6 +561,11 @@ def cargar_bebidas_iniciales():
 @app.route("/admin/aprobar/<int:id>", methods=["POST"])
 def aprobar_experiencia(id):
 
+    acceso = admin_requerido()
+
+    if acceso:
+        return acceso
+
     experiencia = Experiencia.query.get_or_404(id)
 
     experiencia.aprobada = True
@@ -509,7 +581,10 @@ def aprobar_experiencia(id):
 
 @app.route("/admin/eliminar/<int:id>", methods=["POST"])
 def eliminar_experiencia(id):
+    acceso = admin_requerido()
 
+    if acceso:
+        return acceso
     experiencia = Experiencia.query.get_or_404(id)
 
     db.session.delete(experiencia)

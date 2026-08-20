@@ -2158,3 +2158,46 @@ h2 {
     margin-top: 25px;
     flex-wrap: wrap;
 }
+.admin-login {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.admin-login-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 35px;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-login-box p {
+    margin: 15px 0 25px;
+}
+
+.login-error {
+    background: rgba(180, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.admin-login-box .campo-admin {
+    text-align: left;
+}
+
+.admin-login-box input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #151515;
+    color: white;
+    box-sizing: border-box;
+}
