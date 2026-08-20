@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="admin-panel">
+
+    <div class="container">
+
+        <h1 class="titulo-neon">
+            ADMINISTRACIÓN
+        </h1>
+
+        <h2>
+            Experiencias pendientes
+        </h2>
+
+        {% if pendientes %}
+
+            <div class="admin-experiencias">
+
+                {% for experiencia in pendientes %}
+
+                    <div class="admin-card">
+
+                        {% if experiencia.foto %}
+
+                            <img
+                                src="{{ experiencia.foto }}"
+                                alt="Foto de {{ experiencia.nombre_cliente }}"
+                            >
+
+                        {% endif %}
+
+                        <div class="admin-info">
+
+                            <h3>
+                                {{ experiencia.nombre_cliente }}
+                            </h3>
+
+                            <p>
+                                {{ experiencia.comentario }}
+                            </p>
+
+                            <small>
+                                Evento:
+                                {{ experiencia.tipo_evento }}
+                            </small>
+
+                            <div class="admin-botones">
+
+                                <form
+                                    method="POST"
+                                    action="{{ url_for('aprobar_experiencia', id=experiencia.id) }}"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="btn-principal"
+                                    >
+                                        ✅ Aprobar
+                                    </button>
+
+                                </form>
+
+
+                                <form
+                                    method="POST"
+                                    action="{{ url_for('eliminar_experiencia', id=experiencia.id) }}"
+                                    onsubmit="return confirm('¿Seguro que querés eliminar esta experiencia?');"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="btn-eliminar"
+                                    >
+                                        🗑️ Eliminar
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="experiencias-vacias">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h3>
+                    No hay experiencias pendientes
+                </h3>
+
+                <p>
+                    Todas las experiencias fueron revisadas.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

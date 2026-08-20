@@ -167,3 +167,41 @@ with app.app_context():
     
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route("/admin")
+def admin():
+
+    pendientes = Experiencia.query.filter_by(
+        aprobada=False
+    ).order_by(
+        Experiencia.fecha.desc()
+    ).all()
+
+    return render_template(
+        "admin.html",
+        pendientes=pendientes
+    )
+
+
+@app.route("/admin/aprobar/<int:id>", methods=["POST"])
+def aprobar_experiencia(id):
+
+    experiencia = Experiencia.query.get_or_404(id)
+
+    experiencia.aprobada = True
+
+    db.session.commit()
+
+    return redirect("/admin")
+
+
+@app.route("/admin/eliminar/<int:id>", methods=["POST"])
+def eliminar_experiencia(id):
+
+    experiencia = Experiencia.query.get_or_404(id)
+
+    db.session.delete(experiencia)
+
+    db.session.commit()
+
+    return redirect("/admin")
