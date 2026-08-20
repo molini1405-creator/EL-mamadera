@@ -54,6 +54,20 @@
         </p>
 
 
+        <!-- BOTÓN COMPARTIR -->
+
+        <div class="compartir-boton">
+
+            <a
+                href="{{ url_for('compartir_experiencia', tipo_evento='casamiento') }}"
+                class="btn-principal"
+            >
+                📸 Compartir mi experiencia
+            </a>
+
+        </div>
+
+
         <!-- FUTURAS PUBLICACIONES -->
 
         <div class="experiencias-vacias">
@@ -77,11 +91,15 @@
 
 
 <!-- VOLVER -->
+
 <section class="volver">
 
     <div class="container">
 
-        <a href="{{ url_for('inicio') }}" class="btn-principal">
+        <a
+            href="{{ url_for('inicio') }}"
+            class="btn-principal"
+        >
             Volver al inicio
         </a>
 
