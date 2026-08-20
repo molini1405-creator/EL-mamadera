@@ -10,35 +10,40 @@
             AGREGAR BEBIDA
         </h1>
 
-        <div class="formulario-experiencia">
+        <div class="form-admin">
 
-            <form method="POST">
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
+                    <label for="nombre">
                         Nombre
                     </label>
 
                     <input
                         type="text"
+                        id="nombre"
                         name="nombre"
-                        placeholder="Ej: Margarita"
+                        placeholder="Ej: Negroni"
                         required
                     >
 
                 </div>
 
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
+                    <label for="descripcion">
                         Descripción
                     </label>
 
                     <textarea
+                        id="descripcion"
                         name="descripcion"
-                        rows="5"
+                        rows="4"
                         placeholder="Descripción de la bebida"
                         required
                     ></textarea>
@@ -46,13 +51,21 @@
                 </div>
 
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
+                    <label for="categoria">
                         Categoría
                     </label>
 
-                    <select name="categoria" required>
+                    <select
+                        id="categoria"
+                        name="categoria"
+                        required
+                    >
+
+                        <option value="">
+                            Seleccionar categoría
+                        </option>
 
                         <option value="cocteles">
                             Cócteles
@@ -74,43 +87,48 @@
                             Sin alcohol
                         </option>
 
-                        <option value="cocteles aperitivos">
-                            Cócteles + Aperitivos
-                        </option>
-
                     </select>
 
                 </div>
 
 
-                <div class="campo">
+                <div class="campo-admin">
 
-                    <label>
-                        URL de imagen
+                    <label for="foto">
+                        Foto de la bebida
                     </label>
 
                     <input
-                        type="text"
-                        name="imagen"
-                        placeholder="/static/img/tragos/ejemplo.jpg"
+                        type="file"
+                        id="foto"
+                        name="foto"
+                        accept="image/*"
                     >
+
+                    <small>
+                        Podés seleccionar una imagen desde tu computadora o celular.
+                    </small>
 
                 </div>
 
 
-                <button
-                    type="submit"
-                    class="btn-principal"
-                >
-                    ➕ Agregar bebida
-                </button>
+                <div class="admin-form-botones">
 
-                <a
-                    href="{{ url_for('admin') }}"
-                    class="btn-principal"
-                >
-                    Volver
-                </a>
+                    <button
+                        type="submit"
+                        class="btn-principal"
+                    >
+                        ➕ Agregar bebida
+                    </button>
+
+                    <a
+                        href="{{ url_for('admin') }}"
+                        class="btn-editar"
+                    >
+                        Cancelar
+                    </a>
+
+                </div>
 
             </form>
 
