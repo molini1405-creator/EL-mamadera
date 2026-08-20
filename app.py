@@ -149,7 +149,7 @@ def compartir_experiencia(tipo_evento):
 
 
             # =================================================
-            # GUARDAR EN POSTGRESQL
+            # GUARDAR EXPERIENCIA EN POSTGRESQL
             # =================================================
 
             nueva_experiencia = Experiencia(
@@ -163,7 +163,6 @@ def compartir_experiencia(tipo_evento):
             db.session.add(nueva_experiencia)
             db.session.commit()
 
-
             return """
                 <h2>¡Gracias por compartir tu experiencia! 🥂</h2>
 
@@ -175,7 +174,6 @@ def compartir_experiencia(tipo_evento):
                 <a href="/">Volver al inicio</a>
             """
 
-
         except Exception as e:
 
             db.session.rollback()
@@ -184,11 +182,40 @@ def compartir_experiencia(tipo_evento):
 
             return "Ocurrió un error al enviar la experiencia.", 500
 
-
     return render_template(
         "compartir.html",
         tipo_evento=tipo_evento
     )
+
+
+# =====================================================
+# ADMIN
+# =====================================================
+
+@app.route("/admin")
+def admin():
+
+    pendientes = Experiencia.query.filter_by(
+        aprobada=False
+    ).order_by(
+        Experiencia.fecha.desc()
+    ).all()
+
+    bebidas = Bebida.query.order_by(
+        Bebida.id
+    ).all()
+
+    return render_template(
+        "admin.html",
+        pendientes=pendientes,
+        bebidas=bebidas
+    )
+
+
+# =====================================================
+# AGREGAR BEBIDA
+# =====================================================
+
 @app.route("/admin/bebidas/agregar", methods=["GET", "POST"])
 def agregar_bebida():
 
@@ -216,6 +243,11 @@ def agregar_bebida():
 
     return render_template("agregar_bebida.html")
 
+
+# =====================================================
+# EDITAR BEBIDA
+# =====================================================
+
 @app.route("/admin/bebidas/editar/<int:id>", methods=["GET", "POST"])
 def editar_bebida(id):
 
@@ -237,6 +269,11 @@ def editar_bebida(id):
         bebida=bebida
     )
 
+
+# =====================================================
+# ELIMINAR BEBIDA
+# =====================================================
+
 @app.route("/admin/bebidas/eliminar/<int:id>", methods=["POST"])
 def eliminar_bebida(id):
 
@@ -246,6 +283,11 @@ def eliminar_bebida(id):
     db.session.commit()
 
     return redirect("/admin")
+
+
+# =====================================================
+# CARGAR BEBIDAS INICIALES
+# =====================================================
 
 def cargar_bebidas_iniciales():
 
@@ -398,92 +440,6 @@ def cargar_bebidas_iniciales():
     db.session.add_all(bebidas)
     db.session.commit()
 
-# =====================================================
-# ADMIN
-# =====================================================
-
-@app.route("/admin")
-def admin():
-
-    pendientes = Experiencia.query.filter_by(
-        aprobada=False
-    ).order_by(
-        Experiencia.fecha.desc()
-    ).all()
-
-    bebidas = Bebida.query.order_by(
-        Bebida.id
-    ).all()
-
-    return render_template(
-        "admin.html",
-        pendientes=pendientes,
-        bebidas=bebidas
-    )
-
-# =====================================================
-# ADMINISTRAR BEBIDAS
-# =====================================================
-
-@app.route("/admin/bebidas/agregar", methods=["GET", "POST"])
-def agregar_bebida():
-
-    if request.method == "POST":
-
-        nombre = request.form.get("nombre")
-        descripcion = request.form.get("descripcion")
-        categoria = request.form.get("categoria")
-        imagen = request.form.get("imagen")
-
-        if not nombre or not descripcion or not categoria:
-            return "Todos los campos son obligatorios", 400
-
-        nueva_bebida = Bebida(
-            nombre=nombre,
-            descripcion=descripcion,
-            categoria=categoria,
-            imagen=imagen
-        )
-
-        db.session.add(nueva_bebida)
-        db.session.commit()
-
-        return redirect("/admin")
-
-    return render_template("agregar_bebida.html")
-
-
-@app.route("/admin/bebidas/editar/<int:id>", methods=["GET", "POST"])
-def editar_bebida(id):
-
-    bebida = Bebida.query.get_or_404(id)
-
-    if request.method == "POST":
-
-        bebida.nombre = request.form.get("nombre")
-        bebida.descripcion = request.form.get("descripcion")
-        bebida.categoria = request.form.get("categoria")
-        bebida.imagen = request.form.get("imagen")
-
-        db.session.commit()
-
-        return redirect("/admin")
-
-    return render_template(
-        "editar_bebida.html",
-        bebida=bebida
-    )
-
-
-@app.route("/admin/bebidas/eliminar/<int:id>", methods=["POST"])
-def eliminar_bebida(id):
-
-    bebida = Bebida.query.get_or_404(id)
-
-    db.session.delete(bebida)
-    db.session.commit()
-
-    return redirect("/admin")
 
 # =====================================================
 # APROBAR EXPERIENCIA
@@ -522,7 +478,9 @@ def eliminar_experiencia(id):
 # =====================================================
 
 with app.app_context():
+
     db.create_all()
+
     cargar_bebidas_iniciales()
 
 
